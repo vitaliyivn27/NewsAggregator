@@ -1,0 +1,13 @@
+﻿@model ArticleModel
+@{
+    ViewData["Title"] = "Удаление новости";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+
+    @using (Html.BeginForm("Delete", "Article", FormMethod.Post))
+    {
+        <button>Подтвердить</button>
+    }
+</div>

@@ -1,0 +1,48 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using X.PagedList.Web.Common
+@model List<ArticleDto>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Список новостей";
+    //Layout = null;
+}
+
+<h2 id="article-header">Новости :</h2>
+
+<div class="container-fluid col-12">
+    @foreach (var article in ViewBag.onePageOfArticles)
+    {
+        await Html.RenderPartialAsync("ArticlePreview", (ArticleDto) article);
+    }   
+</div>
+<div class="pagination-nav">
+    @Html.PagedListPager( (IPagedList)ViewBag.onePageOfArticles, page => Url.Action("GetArticles", "Article", new { page }),
+    new PagedListRenderOptions {LinkToFirstPageFormat = "<< Первая страница", LinkToLastPageFormat = "Последняя страница >>", MaximumPageNumbersToDisplay = 5, DelimiterBetweenPageNumbers = " | " })
+</div>
+
+@section CssStyles
+    {
+    <style>
+        h2 {
+            color: black;
+        }
+
+        ul.pagination{
+            justify-content: space-evenly;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+}
+
+    @section Scripts
+    {
+    <script src="~/js/dom-samples.js" asp-append-version="true"></script>
+}

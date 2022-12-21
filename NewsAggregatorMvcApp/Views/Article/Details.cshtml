@@ -1,0 +1,54 @@
+﻿@model ArticleDto
+
+@{
+    ViewData["Title"] = "Подробнее";
+}
+
+<div>
+    <h2>
+        @Model.Title
+    </h2>
+    <h5>
+        @Model.Category
+    </h5>
+    <div>
+
+        @Html.Raw(Model.Text)
+
+    </div>
+    <h6>
+        @Model.PublicationDate
+    </h6>
+</div>
+<hr />
+<div class="btn-group" role="group">
+    @Html.ActionLink("Редактировать", "Edit", "Article",
+    new {id = Model.Id}, new {@class="btn btn-warning"})
+
+    @Html.ActionLink("Удалить", "Delete", "Article",
+    new {id = Model.Id}, new {@class="btn btn-danger"})
+</div>
+
+@section CssStyles
+    {
+
+    <style>
+        img, video,
+        .ytp-cued-thumbnail-overlay,
+        .ytp-cued-thumbnail-overlay-image,
+        background-image,
+        background-video,
+        background-img,
+        image{
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            bottom: auto !important;
+            right: auto !important;
+            top: 50% !important;
+            left: 50% !important;
+            
+        }
+    </style>
+}

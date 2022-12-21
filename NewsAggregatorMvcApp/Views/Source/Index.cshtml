@@ -1,0 +1,17 @@
+﻿@model List<SourceModel>
+
+@{
+    ViewData["Title"] = "Ресурсы";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@Html.ActionLink("Добавить ресурс", "Create", "Source")
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+
+    }
+}

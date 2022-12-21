@@ -1,0 +1,39 @@
+﻿@model ArticleModel
+@{
+    ViewData["Title"] = "Редактор новости";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    
+    @using (Html.BeginForm("Edit", "Article", FormMethod.Post))
+    {
+        <div>
+            @Html.LabelFor(model => model.Title)
+            @Html.TextBoxFor(model => model.Title)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Category)
+            @Html.TextBoxFor(model => model.Category)
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.ShortSummary, new { @class="form-label"})
+            @Html.TextBoxFor(model => model.ShortSummary, new {@class="form-control", placeholder = "Краткое описание новости"})
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Text)
+            @Html.TextAreaFor(model => model.Text)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.PublicationDate)
+            @Html.TextBoxFor(model => model.PublicationDate, new {type="date"})
+        </div>
+        <br />
+
+        <button>Подтвердить</button>
+    }
+</div>

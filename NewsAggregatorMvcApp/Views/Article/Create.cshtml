@@ -1,0 +1,44 @@
+﻿@model ArticleModel
+@{
+    ViewData["Title"] = "Добавить новость";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    
+    @using (Html.BeginForm("Create", "Article", FormMethod.Post))
+    {
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div>
+            @Html.LabelFor(model => model.Title)
+            @Html.TextBoxFor(model => model.Title,new {@class="form-control"})
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Category, new { @class="form-label"})
+            @Html.TextBoxFor(model => model.Category,new {@class="form-control"})
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.ShortSummary, new { @class="form-label"})
+            @Html.TextBoxFor(model => model.ShortSummary, new {@class="form-control", placeholder = "Краткое описание новости"})
+            <span asp-validation-for="ShortSummary" class="text-danger"></span>
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.Text, new { @class="form-label"})
+            @Html.TextAreaFor(model => model.Text,new {@class="form-control"} )
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Подтвердить">
+    }
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

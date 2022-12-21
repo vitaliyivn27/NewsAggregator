@@ -1,0 +1,63 @@
+﻿@model ArticleDto
+
+<div class="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-10 margin-bottom-15 article-preview">
+    <h3>
+        @Html.DisplayFor(modelItem => Model.Title)
+    </h3>
+    <h5>
+        @Html.DisplayFor(modelItem => Model.Category)
+    </h5>
+    <div>
+        <p>
+            @Html.Raw(Model.ShortSummary)
+        </p>
+    </div>
+    <h6>
+        @Html.DisplayFor(modelItem => Model.PublicationDate)
+    </h6>
+    <div class="row margin-0" visible = "true">
+        <a class="col-12 col-sm-10 btn btn-primary" href="~/article/details/@Model.Id">Читать далее</a>
+    </div>
+    <br />
+</div>
+
+@section CssStyles
+    {
+
+    <style>
+        /*.news-media_centering .news-media__image, 
+        .news-media_centering .news-media__video,
+        .ytp-cued-thumbnail-overlay,
+        .news-media_centering embed, 
+        .news-media_centering iframe, 
+        .news-media_centering img, 
+        .news-media_centering object, 
+        .news-media_centering video {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            bottom: auto !important;
+            right: auto !important;
+            top: 100% !important;
+            left: 100% !important;
+            -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) !important;
+            transform: translateX(-50%) translateY(-50%) translateZ(0) !important;}*/
+            
+        .article-preview {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            bottom: auto !important;
+            right: auto !important;
+            top: 50% !important;
+            left: 50% !important;
+            -webkit-transform: translateX(-50%) translateY(-50%) translateZ(0) !important;
+            transform: translateX(-50%) translateY(-50%) translateZ(0) !important;
+            position : center !important;
+        }
+        
+     </style>
+}
+

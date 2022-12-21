@@ -1,0 +1,28 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Страница админа";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать Админ, <br />скачать новые новости здесь</h1>
+    <br />
+    <br />
+    <button type="button" class="btn btn-outline-success">
+        @Html.ActionLink("Скачать новости", "AddNews", "Account", new {@class="button-for-news"})
+    </button>
+</div>
+
+<section>
+    <style>
+        .btn-outline-success{
+            position: center !important;
+        }
+        .button-for-news {
+            text-decoration-color : white;
+            position: absolute;
+            position : center;
+            
+        }
+    </style>
+</section>
